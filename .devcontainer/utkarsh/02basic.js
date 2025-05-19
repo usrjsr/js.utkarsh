@@ -30,15 +30,27 @@
 //"33abc" => NaN
 // true=> 1 false=>0
 
-let isLogged= 1
+// let isLogged= 1
 
-let booleanisLogged=Boolean(isLogged)
-console.log(booleanisLogged)
+// let booleanisLogged=Boolean(isLogged)
+// console.log(booleanisLogged)
 
-isLogged="abc"
-booleanisLogged=Boolean(isLogged)
-console.log(booleanisLogged)
+// isLogged="abc"
+// booleanisLogged=Boolean(isLogged)
+// console.log(booleanisLogged)
 
-isLogged=""
-booleanisLogged=Boolean(isLogged)
-console.log(booleanisLogged)// empty strings leads to false
+// isLogged=""
+// booleanisLogged=Boolean(isLogged)
+// console.log(booleanisLogged)// empty strings leads to false
+
+
+// console.log(null>0)
+
+// console.log(null<0)
+
+// console.log(null==0)
+
+// console.log(null>=0)
+
+// console.log(null<=0)
+

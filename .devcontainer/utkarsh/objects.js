@@ -100,7 +100,7 @@ const users=[
 
 const course= {
     coursename: "JEE Mathematics",
-    price: "999",
+    price: "₹999/-",
     instructor : "Utkarsh Singh"
 }
 

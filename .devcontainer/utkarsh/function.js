@@ -1,11 +1,11 @@
-function sayMyName() {
-    console.log("U");
-    console.log("T");
-    console.log("K");
-    console.log("A");
-    console.log("R");
-    console.log("H");
-}
+// function sayMyName() {
+//     console.log("U");
+//     console.log("T");
+//     console.log("K");
+//     console.log("A");
+//     console.log("R");
+//     console.log("H");
+// }
 
 //sayMyName();
 
@@ -79,3 +79,147 @@ function sayMyName() {
 // }
 
 // console.log(`Second element of array is ${returnSecondValue(arr)}`);// we can also pass the array directly instead of declaring just like in object we did
+
+//*********SCOPE********** */
+
+// let a=1;
+// const b=5;
+// var c=6;
+
+// console.log("intially a",a);
+// console.log("intially b",b);
+// console.log("intially c",c);
+
+
+// if(true) {
+//     let a=2;
+//     const b=4;
+//     var c=8;
+
+//     console.log("inside if condition a",a);
+//     console.log("inside if condition b",b);
+//     console.log("inside if condition c",c);
+// }
+
+//     console.log("outside if condition a",a);
+//     console.log("outside if condition b",b);
+//     console.log("outside if condition c",c);
+
+    /***************output**************/ 
+
+    /*
+    intially a 1
+    intially b 5
+    intially c 6
+    inside if condition a 2
+    inside if condition b 4
+    inside if condition c 8
+    outside if condition a 1
+    outside if condition b 5
+    outside if condition c 8
+
+    problem is with var only otherwise the variables declared inside the if condition is block scope...as we can see from the output
+ */
+
+//*****************************function declaration throught two methods
+
+// function add(num) {
+//     return num+1;
+// }
+// add(6);//we can call the function from anywhere ....even teh function is declared at bottom we can call it from the top
+
+// const res=function(num) {
+//     return num+2;
+// }
+
+// console.log(res(8));// we have to call the function after the declaration of function definition as the return value of the function is getting stored in a variable
+
+
+
+
+/*******this keyword is used to refer the current context*******/
+
+// const user={
+//     username: "Utkarsh",
+//     price: "₹999/-",
+//     welcomeMsg: function() {
+//         console.log(`${this.username},Welcome to Website`);
+//     }
+// }
+
+// user.welcomeMsg();//Output=> Utkarsh,Welcome to Website
+// user.username="Sumit";
+// user.welcomeMsg();//Output=>Sumit,Welcome to Website, working in current context as we have changed the username 
+
+/****what if  we try to console this */
+
+//console.log(this);//empty parenthesis(empty object)
+
+// function usr() {
+//     let username="utkarsh";
+//     console.log(this.username);//undefined as we have seen it working for the object previously
+// }
+
+// usr();
+
+
+
+/*******ARROW FUNCTION**** */
+
+// const usr= function() {
+//     let username="Utkarsh Singh";
+//     console.log(this.username);//output=> undefined again
+//     console.log(this);//no empty parenthesis getting global details
+// }
+// usr();
+
+//HOW ARRAY FUNCTION IS DECLARED ()=>{}
+
+// const usr= () => {
+//     let username="Utkarsh Singh";
+//     console.log(this.username);//output=> undefined still
+//     console.log(this);//empty parenthesis
+// }
+// usr();
+
+
+//basic arrow function declaration//explicit return
+// const sum= (num1,num2) => {
+//     return num1+num2;
+// }
+// console.log(sum(4,5));
+
+//********OR */
+//const sum= (num1,num2) => num1+num2;//implicit return//we can use parenthesis(num1+num2) also//another method of declaration of arrow function
+//console.log(sum(4,5));
+
+
+/****to return object */ 
+
+// const sum=(num1,num2)=>{username:"usrjsr"};//output=> undefiend as we have to wrap up in parenthesis
+// console.log(sum(3,4));
+
+// const sum=(num1,num2)=>({username:"usrjsr"});//output=> {username: 'usrjsr'} as we have to wrap up in parenthesis
+// console.log(sum(3,4));
+
+
+
+
+
+//*********************IMMEDIATELY INVOKED FUNCTION EXPRESSIONS (IIFE)
+
+// function usr() {
+//     console.log('Database Connected');
+// }
+// usr();
+
+//named IIFE ()()   //()=>function definition ()=> execution call it is used to remove pollution of global scope
+// (function usr1(){
+//     console.log("DATABASE CONNECTED")
+// })()
+//unnnamed iife
+// (() =>{console.log("DATABASE CONNECTED")})();
+// (()=>{console.log("DATABASE CONNECTED")})();//we have to end iife with """colon""" otherwose we'll get gerror
+
+
+((username)=>{console.log(`${username},DATABSAE CONNECTED`)})('Utkarsh');//output=> Utkarsh,DATABSAE CONNECTED

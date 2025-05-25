@@ -7,6 +7,8 @@
 //     console.log("H");
 // }
 
+const { useContext } = require("react");
+
 //sayMyName();
 
 // function sum(num1,num2) {
@@ -222,4 +224,61 @@
 // (()=>{console.log("DATABASE CONNECTED")})();//we have to end iife with """colon""" otherwose we'll get gerror
 
 
-((username)=>{console.log(`${username},DATABSAE CONNECTED`)})('Utkarsh');//output=> Utkarsh,DATABSAE CONNECTED
+//((username)=>{console.log(`${username},DATABSAE CONNECTED`)})('Utkarsh');//output=> Utkarsh,DATABSAE CONNECTED
+
+
+
+
+
+
+
+
+//****************************JAVASCRIPT EXECUTION CONTEXT
+// 1> GLOBAL execution context
+// 2> function execution context
+// 3> eval execution context//property of global execution context
+
+let val1=10
+let val2=14
+
+function sum(num1,num2){
+    let total=num1+num2
+    return total
+}
+
+let sum1=sum(val1,val2)
+let sum2=sum(18,56)
+
+/*1> GLOBAL EXECUTION => allocates in "this"
+   
+   2> **********memory phase
+   val1=>undefined
+   val2=>undefiend
+   sum=>definition
+   sum1=>undefined
+   sum2=>undefined
+
+   3> **********execution phase
+   val1=10
+   val2=14
+
+   sum=> already definition is defined during memory phase but a """"""new variable environment +execution thread"""""" is created and cretes this for every call
+   {
+     1>memory phase
+          val1=> undefined
+          val2=>undefiend
+          total=>undefined
+
+     2>execution context   
+           num1=10
+           num2=14
+           total=25//returns into global executional context
+
+      once the execution is complete then this execution thread is """"""deleted""""""
+   
+   }
+
+   same repition for next call
+
+
+*/

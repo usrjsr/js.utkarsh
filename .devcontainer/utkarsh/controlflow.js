@@ -128,3 +128,101 @@ myCoding.forEach((item)=>{
     //console.log(item.name,item.srt)
 
 })
+
+// const value=myCoding.forEach((item)=>{
+//    return item//but forEach doesn't return any kind of value
+// })
+
+//const nums=[1,2,3,4,5,6,7,8,9]
+
+//const newnums=nums.filter((num)=>num>4)//it return automatically in explicit ,value which satisfies the condition
+// const newnums=nums.filter((num)=>{//in implicit when we start the scope then we need to retutn the value
+//     return num>4
+// })
+// console.log(newnums)
+
+
+
+// const newnums=[]
+// nums.forEach((num)=>{
+//     if(num>4)
+//         newnums.push(num)
+// })
+// console.log(newnums)
+
+
+const books = [
+    { title: 'Book One', genre: 'Fiction', publish: 1981, edition: 2004 },
+    { title: 'Book Two', genre: 'Non-Fiction', publish: 1992, edition: 2008 },
+    { title: 'Book Three', genre: 'History', publish: 1999, edition: 2007 },
+    { title: 'Book Four', genre: 'Non-Fiction', publish: 1989, edition: 2010 },
+    { title: 'Book Five', genre: 'Science', publish: 2009, edition: 2014 },
+    { title: 'Book Six', genre: 'Fiction', publish: 1987, edition: 2010 },
+    { title: 'Book Seven', genre: 'History', publish: 1986, edition: 1996 },
+    { title: 'Book Eight', genre: 'Science', publish: 2011, edition: 2016 },
+    { title: 'Book Nine', genre: 'Non-Fiction', publish: 1981, edition: 1989 },
+  ];
+
+  //const userbooks=books.filter((item)=>item.genre==='History')
+//   const userbooks=books.filter((item)=>{
+//     if(item.genre==='History')
+//         return (item.publish)//even after using item.publish it will return the whole object
+//   })
+
+//const userbooks=books.filter((item)=>item.publish>=1995 && item.genre==='History')
+
+
+const nums=[1,2,3,4,5,6,7,8,9]
+
+//const newnums=nums.map((item)=>item+10)//automatically return the value if we open the scope using curley braces then we need to return the values
+
+//****************using for each
+// const newnums=[]
+// nums.forEach((item)=>{
+//     newnums.push(item+10)
+// })
+
+
+//const newnums=nums.map((item)=>item*10).map((item)=>item+1).filter((item)=> item>50)//first .map passes the value to next .map
+//console.log(newnums)
+
+
+
+//*****************************REDUCE****************** */
+
+const arr=[7,8,9,6]
+
+// const res=arr.reduce((acc,curr)=>{
+//     return acc+curr
+// },0);
+
+// const res=arr.reduce(function (acc,curr){
+//     return acc+curr
+// },0);
+// console.log(res)
+
+const shoppingCart=[
+    {
+        itemName: "C++",
+        price: 999
+    },
+    {
+        itemName: "Java",
+        price: 1999
+    },
+    {
+        itemName: "Python",
+        price: 2999
+    },
+    {
+        itemName: "Javascipt",
+        price: 3999
+    }
+]
+
+// const res=shoppingCart.reduce((total,item)=>{ return total+item.price},0)
+// console.log(res)
+
+console.log(shoppingCart.reduce(function(acc,item){return acc+item.price},0))
+
+

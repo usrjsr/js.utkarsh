@@ -278,7 +278,7 @@ let sum2=sum(18,56)
    
    }
 
-   same repition for next call
+   same repitition for next call
 
 
 */

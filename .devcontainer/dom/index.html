@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM LEARNING</title>
+    <style>
+        .bg-black {
+            background-color: black;
+            color: white;
+        }
+
+    </style>
+</head>
+<body style="background-color:black ; color: white;">
+
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+        <div class="day">Friday</div>
+        <div class="day">Saturday</div>
+        <div class="day">Sunday</div>
+    </div>
+ <script>
+    
+    const parent=document.querySelector('.parent');
+    /*converting html collecction provided through class into array*/
+    // const child=Array.from(parent.children);//converting nodelist of parent into array
+    // console.log(child);
+
+    
+   //console.log(parent);
+    //console.log(parent.children);
+    //console.log(parent.children[0].innerHTML);
+
+    // for (let index = 0; index < parent.children.length; index++) {
+    //     const element = parent.children[index].innerHTML;
+    //     console.log(element);
+    // }
+
+    parent.children[0].style.color="orange";
+    // console.log(parent.firstElementChild);
+    // console.log(parent.lastElementChild);
+    const day1=document.querySelector(".day");
+    // console.log(day1);
+    // console.log(day1.parentElement.className);
+    // console.log(day1.nextElementSibling.innerText);
+
+    //console.log("NODES:",parent.childNodes);//consider enter,comment also as a node
+
+  </script>
+</body>
+</html>

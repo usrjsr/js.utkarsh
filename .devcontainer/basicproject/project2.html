@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Colour Switcher | Project</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 2rem;
+      background-color: blanchedalmond;
+    }
+
+    button {
+        font-family: 'Segoe UI', sans-serif;
+        height: 35px;
+        width: 100px;
+        font-size: 20px;
+        background-color: grey;
+        color: white;
+    }
+
+     .results {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color: black;
+        font-weight: bold;
+        font-size: large;
+     }
+  </style>
+</head>
+<body>
+  <h1>BMI Calculator</h1>
+  <div class="container">
+    <form>
+        <p>Enter Weight in KG <input id="weight" type="number" style="background-color: aqua; color: black;"></p>
+        <p>Enter Height in CM <input id="height" type="number" style="background-color: aqua;color: black;"></p>
+        <button type="submit">Calculate</button>
+        <button class="reset-btn" type="button">Reset</button>
+    </form>
+  </div>
+  <br>
+  <div class="results" ></div>
+   
+
+  <div class="guide">
+    <h3>BMI GUIDE</h3>
+    <p>UnderWeight => less than 18.6</p>
+    <p>Normal      => 18.6  to  24.9</p>
+    <p>OverWeight  => greater than 24.9</p>
+        
+  </div>
+  <script>
+   const form=document.querySelector('form');
+   const result=document.querySelector('.results');
+   const reset=document.querySelector('.reset-btn');
+
+   form.addEventListener('submit',function(e){
+    e.preventDefault();
+
+    const wt=document.getElementById('weight').value;
+    const ht=document.getElementById('height').value;
+
+    if(wt==''|| wt<=0 || ht=='' || ht<=0) {
+        resetbutton();
+        alert('Enter Valid Details');
+    }
+    else {
+        result.textContent=`BMI= ${(wt/((ht/100)**2)).toFixed(1)}`;
+    }
+   });
+
+    reset.addEventListener("click", () => {
+     resetbutton();
+    });
+
+    resetbutton=()=>{
+      document.getElementById('weight').value='';
+      document.getElementById('height').value='';
+      result.textContent="";
+    }
+
+
+  </script>
+</body>
+</html>

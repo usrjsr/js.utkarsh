@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM LEARNING</title>
+    <style>
+        .bg-black {
+            background-color: black;
+            color: white;
+        }
+
+    </style>
+</head>
+<body style="background-color:black ; color: white;">
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+
+ <script>
+    function addLang(langname) {
+        const item=document.createElement('li');
+        item.innerHTML=`${langname}`
+        const lang=document.querySelector('.language');
+        lang.appendChild(item);
+    }
+      addLang("Ruby");
+      addLang("python");
+
+      function addoptimize(langname){
+        const item=document.createElement('li');
+        item.appendChild(document.createTextNode(langname));
+        document.querySelector('.language').appendChild(item);
+      }
+    addoptimize("c++");
+
+    //edit-2
+    // const lang=document.querySelector("li:nth-child(2)");
+    // console.log(lang);//select only ruby language 2nd one
+    // //lang.innerHTML="Utkarsh";
+    // const newli=document.createElement('li');
+    // newli.textContent="Utkarsh";
+    // lang.replaceWith(newli);
+
+
+    //edit-1
+     const langone=document.querySelector('li:first-child');
+     langone.outerHTML="<li>_usr.jsr</li>";
+    // console.log(langone);
+    // const addone=document.createElement('li');
+    // addone.innerHTML="_usr.jsr";
+    // langone.replaceWith(addone);
+
+    const lastlang=document.querySelector('li:last-child');
+    lastlang.remove();
+    
+
+
+ </script>
+</body>
+</html>

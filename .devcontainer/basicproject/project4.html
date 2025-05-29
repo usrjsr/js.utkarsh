@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Guess the Number | Project</title>
+  <style>
+            body {
+            font-family: 'Segoe UI', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+            }
+
+            .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            padding: 2rem 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            max-width: 500px;
+            margin: 2rem auto;
+            }
+
+            h1 {
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            }
+
+            .guess {
+            margin: 1.5rem 0;
+            }
+
+            input[type="number"] {
+            padding: 0.6rem;
+            border-radius: 10px;
+            border: 2px solid #e0a96d;
+            font-size: 1rem;
+            width: 60%;
+            max-width: 200px;
+            outline: none;
+            transition: 0.3s border;
+            }
+
+            input[type="number"]:focus {
+            border-color: #f8b500;
+            }
+
+            button {
+            margin-top: 1rem;
+            padding: 0.6rem 1.2rem;
+            font-size: 1rem;
+            background-color: #f8b500;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            }
+
+            button:hover {
+            background-color: #e67e22;
+            }
+
+            .result,
+            .arr,
+            .guesses {
+            margin-top: 1rem;
+            font-weight: bold;
+            font-size: 1rem;
+            color: #444;
+            }
+
+            .again {
+            margin-top: 1.5rem;
+            }
+
+            .again button {
+            background-color: #27ae60;
+            }
+
+            .again button:hover {
+            background-color: #219150;
+            }
+
+  </style>
+</head>
+<body>
+    <div class="container"><h1>GUESS THE NUMBER</h1></div>
+    <div class="guess">
+        <form >Enter the Number  <input id="form" type="number"></form>
+        <button type="submit">SUBMIT</button>
+    </div>
+   <div class="result"></div>
+   <div class="arr"></div>
+   <div class="guesses"> </div>
+   <div class="again"></div>
+
+
+  <script>
+    const button=document.querySelector('button');
+    const result=document.querySelector('.result');
+    const arr1=document.querySelector('.arr');
+    const guesses=document.querySelector('.guesses');
+    const reset=document.querySelector('.again');
+    let guess=10;
+    guesses.textContent=`Guesses Left: ${guess}`;
+    let arr=[];
+
+
+    button.addEventListener('click',(e)=>{
+      e.preventDefault();
+      const num=Math.floor(Math.random()*10)+1;
+
+
+     if(num==document.querySelector('#form').value) {
+         result.textContent=`Correct Guess  Number was : ${num}`;
+         disablegame('Want to Play Again');
+         
+     }
+     else {
+         result.textContent=`Try Again   Num was : ${num}`;
+         arr.push(document.querySelector('#form').value);
+         document.querySelector('#form').value='';
+         arr1.textContent=`Previous Guesses: ${arr}`;
+         guess--;
+
+          if(guess==0) {
+             disablegame('No Guesses Left,Want to Play Again');
+          }
+         guesses.textContent=`Guesses Left: ${guess}`;
+     }
+    })
+
+     disablegame=(message)=>{
+            reset.innerHTML=`<button class="again">${message}</button>`;
+            button.disabled=true;
+            const again=document.querySelector('.again');
+            again.addEventListener('click',()=>{
+            guess=10;
+            guesses.textContent=`Guesses Left: ${guess}`;
+            arr.length=0;
+            reset.innerHTML="";
+            result.textContent="";
+            arr1.textContent="";
+            button.disabled=false;
+            document.querySelector('#form').value='';
+         })
+    }
+    </script>
+</body>
+</html>

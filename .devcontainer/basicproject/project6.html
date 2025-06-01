@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>KEY VALUE</title>
+  <style>
+        
+        table {
+            width: 60%;
+            margin: 2rem auto;
+            border-collapse: collapse;
+            font-family: sans-serif;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 1rem;
+            border: 1px solid #333;
+            text-align: center;
+        }
+
+        thead {
+            background-color: #f5f5f5;
+            font-weight: bold;
+        }
+  </style>
+</head>
+<body>
+  <div class="usr"></div>
+
+  <script>
+   const evt=document.querySelector('.usr');
+   evt.innerHTML="";
+  document.addEventListener('keydown', (e) => {
+  evt.innerHTML = `
+                <table>
+                    <thead>
+                        <tr>
+                        <th>Key</th>
+                        <th>Key Value</th>
+                        <th>Key Code</th>
+                        </tr>
+                </thead>
+
+                <tbody>
+                        <tr>
+                        <td>${e.key}</td>
+                        <td>${e.code}</td>
+                        <td>${e.keyCode}</td>
+                        </tr>
+                </tbody>
+                </table>
+            `;
+            });
+  </script>
+</body>
+</html>

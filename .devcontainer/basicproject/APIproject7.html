@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>API Request</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-image: url('https://media.istockphoto.com/id/1355368910/photo/sunrise.jpg?s=1024x1024&w=is&k=20&c=V7Jrtf5DQp8x1X47k_s-PlEyNlbdUnwS_ejqfIzN8z8=');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+
+    .card {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 2rem;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+      animation: float 4s ease-in-out infinite;
+      backdrop-filter: blur(10px);
+      max-width: 300px;
+    }
+
+    .card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid #00f0ff;
+      box-shadow: 0 0 15px #00f0ff;
+      margin-bottom: 1rem;
+    }
+
+    .card h1 {
+      font-size: 1.2rem;
+      color: #f0f8ff;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <script>
+    const urlapi = 'https://api.github.com/users/hiteshchoudhary';
+
+    const req = new XMLHttpRequest();
+    req.open('GET', urlapi);
+
+    req.onreadystatechange = function () {
+      if (req.readyState === 4 && req.status === 200) {
+        const data = JSON.parse(this.responseText);
+
+        const card = document.createElement('div');
+        card.classList.add('card');
+        document.body.appendChild(card);
+
+        const img = document.createElement('div');
+        img.innerHTML = `<img src="${data.avatar_url}" alt="Avatar">`;
+        card.appendChild(img);
+
+        const flw = document.createElement('h1');
+        flw.innerHTML = `Followers Count: ${data.followers}`;
+        card.appendChild(flw);
+      }
+    };
+    req.send();
+  </script>
+</body>
+</html>

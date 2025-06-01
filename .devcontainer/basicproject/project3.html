@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Local Time | Project</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 2rem;
+      background-color: blanchedalmond;
+    }
+
+    #clock{
+        background-color: chartreuse;
+        color: black;
+        height: 40px;
+        width: 150px;
+        border-radius: 8%;
+        border-style:solid;
+       font-size: 27px;
+       font-weight: bold;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+
+    }
+
+    .container{
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         justify-items: center;
+         align-items: center;
+    }
+  
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="localtime">Your Local Time</div>
+    <div id="clock" ></div>
+  </div>
+   
+  <script>
+    const clock=document.getElementById('clock');
+    
+    setInterval(function(){
+        let date=new Date();
+        let time=date.toLocaleTimeString();
+        clock.textContent=time;
+    },1000);
+    </script>
+</body>
+</html>
